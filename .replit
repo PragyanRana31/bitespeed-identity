@@ -1,0 +1,26 @@
+entrypoint = "index.js"
+modules = ["nodejs-22"]
+hidden = [".config", "package-lock.json"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
+
+[nix]
+channel = "stable-24_11"
+
+[deployment]
+run = ["node", "index.js"]
+deploymentTarget = "autoscale"
+ignorePorts = false
+
+[agent]
+expertMode = true
+
+[userenv]
+
+[userenv.shared]
+DATABASE_URL = "postgresql://bitespeed_db_h2gl_user:JrfDssr3xGJzPPaZtFh6g8zyqo6hEzn2@dpg-d6in7hpr0fns73becpd0-a.singapore-postgres.render.com/bitespeed_db_h2gl"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
